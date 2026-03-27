@@ -1,17 +1,28 @@
 /**
- * UC1: Foundational step to print "OOPS" to the console.
- * This class serves as the entry point for the Banner Application.
- * * @author Praveen
- * @version 1.0
+ * UC4: Using String Arrays and Loops for the OOPS Banner.
+ * This approach improves modularity and scalability by removing repetitive 
+ * print statements.
+ *
+ * @author Praveen
+ * @version 4.0
  */
 public class OOPSBannerApp {
 
-    /**
-     * Main method: The starting point of any Java application.
-     * @param args Command line arguments
-     */
     public static void main(String[] args) {
-        // Method Invocation to print a String Literal
-        System.out.println("OOPS");
+
+        String[] banner = {
+            " *****    *****    *****    ***** ",
+            "*     *  *     *  *     *  *     *",
+            "*     *  *     *  *     *  *      ",
+            "*     *  *     *  ******    ***** ",
+            "*     *  *     *  *               ",
+            "*     *  *     *  *        *     *",
+            " *****    *****   *         ***** "
+        };
+
+        // Enhanced for-loop to print each line
+        for (String line : banner) {
+            System.out.println(line);
+        }
     }
 }
