@@ -1,17 +1,27 @@
 /**
- * UC1: Foundational step to print "OOPS" to the console.
- * This class serves as the entry point for the Banner Application.
- * * @author Praveen
- * @version 1.0
+ * UC5: Optimizing banner rendering using Inline Array Initialization.
+ * This approach combines declaration and population into a single statement
+ * to enhance code conciseness and readability.
+ *
+ * @author Praveen
+ * @version 5.0
  */
 public class OOPSBannerApp {
 
-    /**
-     * Main method: The starting point of any Java application.
-     * @param args Command line arguments
-     */
-    public static void main(String[] args) {
-        // Method Invocation to print a String Literal
-        System.out.println("OOPS");
+   public static void main(String[] args) {
+
+        String[] banner = {
+            String.join("  ", " ***** ", " ***** ", " ***** ", " ***** "),
+            String.join("  ", "*     *", "*     *", "*     *", "*     *"),
+            String.join("  ", "*     *", "*     *", "*     *", "*      "),
+            String.join("  ", "*     *", "*     *", "****** ", " ***** "),
+            String.join("  ", "*     *", "*     *", "*      ", "       "),
+            String.join("  ", "*     *", "*     *", "*      ", "*     *"),
+            String.join("  ", " ***** ", " ***** ", "*      ", " ***** ")
+        };
+
+        for (String line : banner) {
+            System.out.println(line);
+        }
     }
 }
