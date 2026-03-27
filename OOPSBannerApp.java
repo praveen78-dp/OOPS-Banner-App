@@ -1,31 +1,22 @@
+import java.util.HashMap;
+import java.util.Map;
+
 /**
- * UC7: Transitioning to an Object-Oriented structure using Inner Classes.
- * This version encapsulates character patterns into a dedicated class
- * for better organization, reusability, and scalability.
+ * UC8: Final Architecture using HashMap and StringBuilder.
+ * This version separates pattern storage from display logic for 
+ * professional-grade maintainability and scalability.
  *
  * @author Praveen
- * @version 7.0
+ * @version 8.0
  */
 public class OOPSBannerApp {
 
-      // Static Inner Class
-    static class CharacterPatternMap {
-        private String[] pattern;
+    public static void main(String[] args) {
 
-        // Constructor
-        public CharacterPatternMap(String[] pattern) {
-            this.pattern = pattern;
-        }
+        // Step 1: Store patterns in a Map
+        Map<Character, String[]> map = new HashMap<>();
 
-        // Getter
-        public String[] getPattern() {
-            return pattern;
-        }
-    }
-
-    // Methods to create patterns using the inner class
-    static CharacterPatternMap getO() {
-        return new CharacterPatternMap(new String[] {
+        map.put('O', new String[] {
             " ***** ",
             "*     *",
             "*     *",
@@ -34,10 +25,8 @@ public class OOPSBannerApp {
             "*     *",
             " ***** "
         });
-    }
 
-    static CharacterPatternMap getP() {
-        return new CharacterPatternMap(new String[] {
+        map.put('P', new String[] {
             " ***** ",
             "*     *",
             "*     *",
@@ -46,10 +35,8 @@ public class OOPSBannerApp {
             "*      ",
             "*      "
         });
-    }
 
-    static CharacterPatternMap getS() {
-        return new CharacterPatternMap(new String[] {
+        map.put('S', new String[] {
             " ***** ",
             "*     *",
             "*      ",
@@ -58,25 +45,19 @@ public class OOPSBannerApp {
             "*     *",
             " ***** "
         });
-    }
 
-    public static void main(String[] args) {
+        String text = "OOPS";
 
-        CharacterPatternMap o1 = getO();
-        CharacterPatternMap o2 = getO();
-        CharacterPatternMap p  = getP();
-        CharacterPatternMap s  = getS();
-
-        String[] patternO1 = o1.getPattern();
-        String[] patternO2 = o2.getPattern();
-        String[] patternP  = p.getPattern();
-        String[] patternS  = s.getPattern();
-
-        // Build and print banner
+        // Step 2: Build banner using nested loops + StringBuilder
         for (int i = 0; i < 7; i++) {
-            String line = patternO1[i] + "  " + patternO2[i] + "  " +
-                          patternP[i]  + "  " + patternS[i];
-            System.out.println(line);
+            StringBuilder line = new StringBuilder();
+
+            for (char ch : text.toCharArray()) {
+                String[] pattern = map.get(ch);
+                line.append(pattern[i]).append("  ");
+            }
+
+            System.out.println(line.toString());
         }
     }
 }
