@@ -1,28 +1,28 @@
 /**
- * UC3: Refactoring the "OOPS" banner using String.join().
- * This approach optimizes memory management by avoiding excessive 
- * temporary object creation.
- * * @author Praveen
- * @version 3.0 
+ * UC4: Using String Arrays and Loops for the OOPS Banner.
+ * This approach improves modularity and scalability by removing repetitive 
+ * print statements.
+ *
+ * @author Praveen
+ * @version 4.0
  */
 public class OOPSBannerApp {
 
-    /**
-     * Main Method: Entry point of the application.
-     * Uses String.join() to construct banner lines efficiently. 
-     */
     public static void main(String[] args) {
 
-        String banner = String.join("\n",
-            " *****    *****    ******    *****  ",
-            "*     *  *     *   *     *  *     * ",
-            "*     *  *     *   *     *  *       ",
-            "*     *  *     *   ******    *****  ",
-            "*     *  *     *   *              * ",
-            "*     *  *     *   *        *     * ",
-            " *****    *****    *         *****  "
-        );
+        String[] banner = {
+            " *****    *****    *****    ***** ",
+            "*     *  *     *  *     *  *     *",
+            "*     *  *     *  *     *  *      ",
+            "*     *  *     *  ******    ***** ",
+            "*     *  *     *  *               ",
+            "*     *  *     *  *        *     *",
+            " *****    *****   *         ***** "
+        };
 
-        System.out.println(banner);
+        // Enhanced for-loop to print each line
+        for (String line : banner) {
+            System.out.println(line);
+        }
     }
 }
