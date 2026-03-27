@@ -1,26 +1,62 @@
 /**
- * UC5: Optimizing banner rendering using Inline Array Initialization.
- * This approach combines declaration and population into a single statement
- * to enhance code conciseness and readability.
+ * UC6: Refactoring with Static Helper Methods.
+ * This approach adheres to the DRY principle by encapsulating ASCII 
+ * patterns into reusable functions.
  *
  * @author Praveen
- * @version 5.0
+ * @version 6.0
  */
 public class OOPSBannerApp {
 
-   public static void main(String[] args) {
-
-        String[] banner = {
-            String.join("  ", " ***** ", " ***** ", " ***** ", " ***** "),
-            String.join("  ", "*     *", "*     *", "*     *", "*     *"),
-            String.join("  ", "*     *", "*     *", "*     *", "*      "),
-            String.join("  ", "*     *", "*     *", "****** ", " ***** "),
-            String.join("  ", "*     *", "*     *", "*      ", "       "),
-            String.join("  ", "*     *", "*     *", "*      ", "*     *"),
-            String.join("  ", " ***** ", " ***** ", "*      ", " ***** ")
+     // Letter O
+    static String[] getO() {
+        return new String[] {
+            " ***** ",
+            "*     *",
+            "*     *",
+            "*     *",
+            "*     *",
+            "*     *",
+            " ***** "
         };
+    }
 
-        for (String line : banner) {
+    // Letter P
+    static String[] getP() {
+        return new String[] {
+            " ***** ",
+            "*     *",
+            "*     *",
+            "****** ",
+            "*      ",
+            "*      ",
+            "*      "
+        };
+    }
+
+    // Letter S
+    static String[] getS() {
+        return new String[] {
+            " ***** ",
+            "*     *",
+            "*      ",
+            " ***** ",
+            "      *",
+            "*     *",
+            " ***** "
+        };
+    }
+
+    public static void main(String[] args) {
+
+        String[] o1 = getO();
+        String[] o2 = getO();
+        String[] p  = getP();
+        String[] s  = getS();
+
+        // Combine all letters row-wise
+        for (int i = 0; i < 7; i++) {
+            String line = o1[i] + "  " + o2[i] + "  " + p[i] + "  " + s[i];
             System.out.println(line);
         }
     }
