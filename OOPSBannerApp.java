@@ -1,17 +1,28 @@
 /**
- * UC1: Foundational step to print "OOPS" to the console.
- * This class serves as the entry point for the Banner Application.
+ * UC3: Refactoring the "OOPS" banner using String.join().
+ * This approach optimizes memory management by avoiding excessive 
+ * temporary object creation.
  * * @author Praveen
- * @version 1.0
+ * @version 3.0 
  */
 public class OOPSBannerApp {
 
     /**
-     * Main method: The starting point of any Java application.
-     * @param args Command line arguments
+     * Main Method: Entry point of the application.
+     * Uses String.join() to construct banner lines efficiently. 
      */
     public static void main(String[] args) {
-        // Method Invocation to print a String Literal
-        System.out.println("OOPS");
+
+        String banner = String.join("\n",
+            " *****    *****    ******    *****  ",
+            "*     *  *     *   *     *  *     * ",
+            "*     *  *     *   *     *  *       ",
+            "*     *  *     *   ******    *****  ",
+            "*     *  *     *   *              * ",
+            "*     *  *     *   *        *     * ",
+            " *****    *****    *         *****  "
+        );
+
+        System.out.println(banner);
     }
 }
