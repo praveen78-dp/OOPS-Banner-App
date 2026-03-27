@@ -1,16 +1,31 @@
 /**
- * UC6: Refactoring with Static Helper Methods.
- * This approach adheres to the DRY principle by encapsulating ASCII 
- * patterns into reusable functions.
+ * UC7: Transitioning to an Object-Oriented structure using Inner Classes.
+ * This version encapsulates character patterns into a dedicated class
+ * for better organization, reusability, and scalability.
  *
  * @author Praveen
- * @version 6.0
+ * @version 7.0
  */
 public class OOPSBannerApp {
 
-     // Letter O
-    static String[] getO() {
-        return new String[] {
+      // Static Inner Class
+    static class CharacterPatternMap {
+        private String[] pattern;
+
+        // Constructor
+        public CharacterPatternMap(String[] pattern) {
+            this.pattern = pattern;
+        }
+
+        // Getter
+        public String[] getPattern() {
+            return pattern;
+        }
+    }
+
+    // Methods to create patterns using the inner class
+    static CharacterPatternMap getO() {
+        return new CharacterPatternMap(new String[] {
             " ***** ",
             "*     *",
             "*     *",
@@ -18,12 +33,11 @@ public class OOPSBannerApp {
             "*     *",
             "*     *",
             " ***** "
-        };
+        });
     }
 
-    // Letter P
-    static String[] getP() {
-        return new String[] {
+    static CharacterPatternMap getP() {
+        return new CharacterPatternMap(new String[] {
             " ***** ",
             "*     *",
             "*     *",
@@ -31,12 +45,11 @@ public class OOPSBannerApp {
             "*      ",
             "*      ",
             "*      "
-        };
+        });
     }
 
-    // Letter S
-    static String[] getS() {
-        return new String[] {
+    static CharacterPatternMap getS() {
+        return new CharacterPatternMap(new String[] {
             " ***** ",
             "*     *",
             "*      ",
@@ -44,19 +57,25 @@ public class OOPSBannerApp {
             "      *",
             "*     *",
             " ***** "
-        };
+        });
     }
 
     public static void main(String[] args) {
 
-        String[] o1 = getO();
-        String[] o2 = getO();
-        String[] p  = getP();
-        String[] s  = getS();
+        CharacterPatternMap o1 = getO();
+        CharacterPatternMap o2 = getO();
+        CharacterPatternMap p  = getP();
+        CharacterPatternMap s  = getS();
 
-        // Combine all letters row-wise
+        String[] patternO1 = o1.getPattern();
+        String[] patternO2 = o2.getPattern();
+        String[] patternP  = p.getPattern();
+        String[] patternS  = s.getPattern();
+
+        // Build and print banner
         for (int i = 0; i < 7; i++) {
-            String line = o1[i] + "  " + o2[i] + "  " + p[i] + "  " + s[i];
+            String line = patternO1[i] + "  " + patternO2[i] + "  " +
+                          patternP[i]  + "  " + patternS[i];
             System.out.println(line);
         }
     }
