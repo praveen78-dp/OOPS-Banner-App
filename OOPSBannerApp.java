@@ -1,17 +1,19 @@
 /**
- * UC2: Rendering "OOPS" as a large 7-line ASCII banner.
- * This version matches the filename OOPSBannerApp.java and fixes alignment.
+ * UC3: Refactoring the "OOPS" banner using String.join().
+ * This approach optimizes memory management by avoiding excessive 
+ * temporary object creation.
  * * @author Praveen
- * @version 2.0
+ * @version 3.0 
  */
 public class OOPSBannerApp {
 
     /**
-     * Main method to print the banner.
-     * Each line is carefully spaced to form the letters O O P S.
+     * Main Method: Entry point of the application.
+     * Uses String.join() to construct banner lines efficiently. 
      */
     public static void main(String[] args) {
-        String[] banner = {
+
+        String banner = String.join("\n",
             " *****    *****    ******    *****  ",
             "*     *  *     *   *     *  *     * ",
             "*     *  *     *   *     *  *       ",
@@ -19,10 +21,8 @@ public class OOPSBannerApp {
             "*     *  *     *   *              * ",
             "*     *  *     *   *        *     * ",
             " *****    *****    *         *****  "
-        };
+        );
 
-        for (String line : banner) {
-            System.out.println(line);
-        }
+        System.out.println(banner);
     }
 }
